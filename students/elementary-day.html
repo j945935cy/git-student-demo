@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>小學生的一天 | A Day in an Elementary Student's Life</title>
+    <style>
+      :root {
+        --bg: #f4f8ff;
+        --card: #ffffff;
+        --text: #1f2a44;
+        --accent: #4f83ff;
+        --accent-soft: #e7efff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Noto Sans TC", "Segoe UI", Arial, sans-serif;
+        color: var(--text);
+        background: linear-gradient(180deg, #eaf3ff 0%, var(--bg) 100%);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+
+      .hero {
+        text-align: center;
+        background: var(--card);
+        border-radius: 18px;
+        padding: 28px 20px;
+        box-shadow: 0 10px 24px rgba(79, 131, 255, 0.14);
+        margin-bottom: 24px;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(1.7rem, 3vw, 2.3rem);
+      }
+
+      .hero p {
+        margin: 8px 0 0;
+        color: #4d5b80;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 14px;
+      }
+
+      .item {
+        background: var(--card);
+        border-radius: 14px;
+        padding: 14px 16px;
+        border-left: 6px solid var(--accent);
+        box-shadow: 0 4px 10px rgba(31, 42, 68, 0.06);
+      }
+
+      .time {
+        display: inline-block;
+        background: var(--accent-soft);
+        color: #2b4a93;
+        font-weight: 700;
+        border-radius: 999px;
+        padding: 2px 10px;
+        margin-bottom: 8px;
+      }
+
+      .zh {
+        margin: 0;
+        font-weight: 700;
+      }
+
+      .en {
+        margin: 2px 0 0;
+        color: #3f4c6d;
+      }
+
+      footer {
+        margin-top: 22px;
+        text-align: center;
+        font-size: 0.95rem;
+        color: #5b6a91;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <section class="hero">
+        <h1>小學生的一天</h1>
+        <p>A Day in an Elementary Student's Life</p>
+      </section>
+
+      <section class="timeline" aria-label="daily schedule">
+        <article class="item">
+          <span class="time">06:30</span>
+          <p class="zh">起床、刷牙、洗臉，準備上學。</p>
+          <p class="en">Wake up, brush teeth, wash face, and get ready for school.</p>
+        </article>
+
+        <article class="item">
+          <span class="time">07:20</span>
+          <p class="zh">吃早餐，和家人說早安。</p>
+          <p class="en">Eat breakfast and say good morning to family.</p>
+        </article>
+
+        <article class="item">
+          <span class="time">08:00</span>
+          <p class="zh">到學校，和同學一起早自習。</p>
+          <p class="en">Arrive at school and join morning study with classmates.</p>
+        </article>
+
+        <article class="item">
+          <span class="time">10:00</span>
+          <p class="zh">上國語、數學和自然課，認真聽老師講課。</p>
+          <p class="en">Take Chinese, math, and science classes and listen carefully to the teacher.</p>
+        </article>
+
+        <article class="item">
+          <span class="time">12:00</span>
+          <p class="zh">午餐時間，吃營養午餐後休息一下。</p>
+          <p class="en">Lunch time—eat a healthy meal and take a short rest.</p>
+        </article>
+
+        <article class="item">
+          <span class="time">14:00</span>
+          <p class="zh">體育課和社團活動，運動讓身體更健康。</p>
+          <p class="en">P.E. class and club activities—exercise keeps the body healthy.</p>
+        </article>
+
+        <article class="item">
+          <span class="time">16:00</span>
+          <p class="zh">放學回家，先完成作業。</p>
+          <p class="en">Go home after school and finish homework first.</p>
+        </article>
+
+        <article class="item">
+          <span class="time">19:00</span>
+          <p class="zh">吃晚餐、閱讀故事書，和家人聊天。</p>
+          <p class="en">Have dinner, read storybooks, and chat with family.</p>
+        </article>
+
+        <article class="item">
+          <span class="time">21:00</span>
+          <p class="zh">整理書包，準備明天，早睡早起身體好。</p>
+          <p class="en">Pack the school bag for tomorrow and go to bed early for good health.</p>
+        </article>
+      </section>
+
+      <footer>快樂學習，健康成長！ | Learn happily, grow healthily!</footer>
+    </main>
+  </body>
+</html>
