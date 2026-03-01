@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>章節二：CSS 版面與樣式</title>
+    <style>
+      body { font-family: "Noto Sans TC", sans-serif; margin: 0; background: #f5f7fb; color: #1f2937; }
+      .wrap { max-width: 920px; margin: 0 auto; padding: 1.2rem; }
+      a { color: #2563eb; }
+      .card { background: white; border: 1px solid #d9e1ec; border-radius: 12px; padding: 1rem 1.2rem; margin: 1rem 0; }
+      .q { margin-bottom: .9rem; padding-bottom: .7rem; border-bottom: 1px dashed #dbe4f0; }
+      button { background:#2563eb; color:#fff; border:0; border-radius:8px; padding:.55rem .95rem; cursor:pointer; }
+      #result { margin-top: .9rem; font-weight: 700; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <p><a href="../index.html">← 回主目錄</a></p>
+      <h1>章節二：CSS 版面與樣式</h1>
+      <div class="card">
+        <h2>內容重點</h2>
+        <ul>
+          <li>CSS 負責設定顏色、字型、間距與排版。</li>
+          <li>盒模型包含：content、padding、border、margin。</li>
+          <li>Flexbox 可快速建立水平或垂直排列。</li>
+          <li>媒體查詢可依螢幕大小調整樣式。</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>測驗（10 題）</h2>
+        <form id="quiz"></form>
+        <button type="button" onclick="gradeQuiz()">送出答案</button>
+        <p id="result"></p>
+      </div>
+    </div>
+
+    <script>
+      const questions = [
+        ["CSS 主要功能是？", ["建立資料庫", "設定樣式", "處理後端", "部署網站"], 1],
+        ["哪個屬性可改變文字顏色？", ["font-size", "background", "color", "display"], 2],
+        ["盒模型不包含哪一項？", ["padding", "margin", "border", "router"], 3],
+        ["讓元素橫向排列常用？", ["display:flex", "position:fixed", "overflow:auto", "z-index"], 0],
+        ["控制外距的屬性是？", ["padding", "gap", "margin", "line-height"], 2],
+        ["下列哪個是 class 選擇器？", ["#menu", ".menu", "menu", "*menu"], 1],
+        ["媒體查詢用途是？", ["資料加密", "自動備份", "響應式設計", "產生圖表"], 2],
+        ["border-radius 可用來？", ["旋轉元素", "圓角效果", "隱藏元素", "改變透明度"], 1],
+        ["字體大小常用單位？", ["px", "kg", "mb", "hz"], 0],
+        ["讓區塊置中可搭配？", ["margin:0 auto", "float:left", "clear:both", "display:none"], 0]
+      ];
+
+      const form = document.getElementById("quiz");
+      questions.forEach((q, i) => {
+        const block = document.createElement("div");
+        block.className = "q";
+        block.innerHTML = `<p>${i + 1}. ${q[0]}</p>` + q[1]
+          .map((opt, idx) => `<label><input type="radio" name="q${i}" value="${idx}"> ${opt}</label><br>`)
+          .join("");
+        form.appendChild(block);
+      });
+
+      function gradeQuiz() {
+        let score = 0;
+        questions.forEach((q, i) => {
+          const checked = document.querySelector(`input[name="q${i}"]:checked`);
+          if (checked && Number(checked.value) === q[2]) score++;
+        });
+        document.getElementById("result").textContent = `你的分數：${score} / ${questions.length}`;
+      }
+    </script>
+  </body>
+</html>
