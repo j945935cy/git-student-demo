@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>章節一：HTML 結構基礎</title>
+    <style>
+      body { font-family: "Noto Sans TC", sans-serif; margin: 0; background: #f5f7fb; color: #1f2937; }
+      .wrap { max-width: 920px; margin: 0 auto; padding: 1.2rem; }
+      a { color: #2563eb; }
+      .card { background: white; border: 1px solid #d9e1ec; border-radius: 12px; padding: 1rem 1.2rem; margin: 1rem 0; }
+      h1 { margin-bottom: .2rem; }
+      .q { margin-bottom: .9rem; padding-bottom: .7rem; border-bottom: 1px dashed #dbe4f0; }
+      button { background:#2563eb; color:#fff; border:0; border-radius:8px; padding:.55rem .95rem; cursor:pointer; }
+      #result { margin-top: .9rem; font-weight: 700; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <p><a href="../index.html">← 回主目錄</a></p>
+      <h1>章節一：HTML 結構基礎</h1>
+      <div class="card">
+        <h2>內容重點</h2>
+        <ul>
+          <li>HTML 是描述網頁結構的標記語言。</li>
+          <li>常見語意化元素：<code>header</code>、<code>main</code>、<code>section</code>、<code>footer</code>。</li>
+          <li>連結使用 <code>&lt;a&gt;</code>，圖片使用 <code>&lt;img&gt;</code>，表單使用 <code>&lt;form&gt;</code>。</li>
+          <li>良好的標題階層有助於可讀性與 SEO。</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>測驗（10 題）</h2>
+        <form id="quiz"></form>
+        <button type="button" onclick="gradeQuiz()">送出答案</button>
+        <p id="result"></p>
+      </div>
+    </div>
+
+    <script>
+      const questions = [
+        ["HTML 的主要用途是？", ["設計資料庫", "描述網頁結構", "編輯影片", "管理伺服器"], 1],
+        ["下列哪個是超連結標籤？", ["<link>", "<href>", "<a>", "<url>"], 2],
+        ["圖片常用哪個標籤？", ["<img>", "<pic>", "<image>", "<src>"], 0],
+        ["語意化元素的好處不包含？", ["提升可讀性", "有助 SEO", "增加語意", "取代 CSS"], 3],
+        ["標題由大到小正確順序？", ["h1→h2→h3", "h3→h2→h1", "h2→h4→h1", "h1→h3→h2"], 0],
+        ["表單送出通常用哪個元素？", ["<submit>", "<button>", "<send>", "<post>"], 1],
+        ["哪個屬性可指定連結網址？", ["src", "alt", "href", "target"], 2],
+        ["哪個元素常作為網頁主要內容容器？", ["main", "meta", "style", "head"], 0],
+        ["doctype 宣告主要作用？", ["設定字型", "宣告 HTML 版本", "連結 CSS", "設定語系"], 1],
+        ["alt 屬性最常見於哪個標籤？", ["a", "img", "p", "h1"], 1]
+      ];
+
+      const form = document.getElementById("quiz");
+      questions.forEach((q, i) => {
+        const block = document.createElement("div");
+        block.className = "q";
+        block.innerHTML = `<p>${i + 1}. ${q[0]}</p>` + q[1]
+          .map((opt, idx) => `<label><input type="radio" name="q${i}" value="${idx}"> ${opt}</label><br>`)
+          .join("");
+        form.appendChild(block);
+      });
+
+      function gradeQuiz() {
+        let score = 0;
+        questions.forEach((q, i) => {
+          const checked = document.querySelector(`input[name="q${i}"]:checked`);
+          if (checked && Number(checked.value) === q[2]) score++;
+        });
+        document.getElementById("result").textContent = `你的分數：${score} / ${questions.length}`;
+      }
+    </script>
+  </body>
+</html>

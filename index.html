@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>電子書學習網站｜主目錄</title>
+    <style>
+      :root {
+        --bg: #f7f9fc;
+        --card: #ffffff;
+        --primary: #2d6cdf;
+        --text: #1e2a39;
+        --muted: #5b6878;
+        --border: #d9e1ec;
+      }
+      body {
+        margin: 0;
+        font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+      header {
+        background: linear-gradient(120deg, #2d6cdf, #4c8dff);
+        color: white;
+        padding: 3rem 1rem;
+        text-align: center;
+      }
+      main {
+        max-width: 1000px;
+        margin: 2rem auto;
+        padding: 0 1rem 2rem;
+      }
+      .book-intro {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .chapter-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1rem;
+      }
+      .chapter-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.2rem;
+      }
+      .chapter-card h2 {
+        margin-top: 0;
+      }
+      .chapter-card p {
+        color: var(--muted);
+        min-height: 3rem;
+      }
+      .chapter-card a {
+        text-decoration: none;
+        background: var(--primary);
+        color: white;
+        padding: 0.55rem 0.9rem;
+        border-radius: 8px;
+        display: inline-block;
+      }
+      footer {
+        text-align: center;
+        color: var(--muted);
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Web 入門電子書</h1>
+      <p>主目錄頁 + 3 個章節（每章附內容與 10 題測驗）</p>
+    </header>
+
+    <main>
+      <section class="book-intro">
+        <h2>學習路線</h2>
+        <ol>
+          <li>章節一：HTML 結構基礎</li>
+          <li>章節二：CSS 版面與樣式</li>
+          <li>章節三：JavaScript 互動入門</li>
+        </ol>
+      </section>
+
+      <section class="chapter-grid">
+        <article class="chapter-card">
+          <h2>章節一：HTML 結構基礎</h2>
+          <p>了解網頁標籤、語意化元素、表單與連結的核心概念。</p>
+          <a href="chapters/chapter1.html">進入章節</a>
+        </article>
+
+        <article class="chapter-card">
+          <h2>章節二：CSS 版面與樣式</h2>
+          <p>掌握選擇器、盒模型、Flexbox 與 RWD 的基本技巧。</p>
+          <a href="chapters/chapter2.html">進入章節</a>
+        </article>
+
+        <article class="chapter-card">
+          <h2>章節三：JavaScript 互動入門</h2>
+          <p>從變數、函式到 DOM 操作，建立網頁互動能力。</p>
+          <a href="chapters/chapter3.html">進入章節</a>
+        </article>
+      </section>
+    </main>
+
+    <footer>© 2026 Web 入門電子書</footer>
+  </body>
+</html>

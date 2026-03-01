@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>章節三：JavaScript 互動入門</title>
+    <style>
+      body { font-family: "Noto Sans TC", sans-serif; margin: 0; background: #f5f7fb; color: #1f2937; }
+      .wrap { max-width: 920px; margin: 0 auto; padding: 1.2rem; }
+      a { color: #2563eb; }
+      .card { background: white; border: 1px solid #d9e1ec; border-radius: 12px; padding: 1rem 1.2rem; margin: 1rem 0; }
+      .q { margin-bottom: .9rem; padding-bottom: .7rem; border-bottom: 1px dashed #dbe4f0; }
+      button { background:#2563eb; color:#fff; border:0; border-radius:8px; padding:.55rem .95rem; cursor:pointer; }
+      #result { margin-top: .9rem; font-weight: 700; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <p><a href="../index.html">← 回主目錄</a></p>
+      <h1>章節三：JavaScript 互動入門</h1>
+      <div class="card">
+        <h2>內容重點</h2>
+        <ul>
+          <li>JavaScript 讓網頁具備互動能力。</li>
+          <li>常見概念：變數、條件判斷、迴圈、函式。</li>
+          <li>可透過 DOM API 操作網頁內容與樣式。</li>
+          <li>事件（如 click）是互動程式的基礎。</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>測驗（10 題）</h2>
+        <form id="quiz"></form>
+        <button type="button" onclick="gradeQuiz()">送出答案</button>
+        <p id="result"></p>
+      </div>
+    </div>
+
+    <script>
+      const questions = [
+        ["JavaScript 主要作用是？", ["資料儲存", "網頁互動", "圖片編修", "版本控制"], 1],
+        ["宣告變數可使用？", ["var/let/const", "style", "importmap", "route"], 0],
+        ["哪個符號代表嚴格相等？", ["=", "==", "===", "!==="], 2],
+        ["點擊按鈕通常監聽哪種事件？", ["hover", "submit", "click", "scroll"], 2],
+        ["函式的用途是？", ["重複使用程式邏輯", "改變作業系統", "安裝套件", "壓縮檔案"], 0],
+        ["取得 DOM 元素可用？", ["querySelector", "print", "parseInt", "fetchAll"], 0],
+        ["if 陳述式用途？", ["設定樣式", "條件判斷", "定義類別", "關閉瀏覽器"], 1],
+        ["for 迴圈適合？", ["重複執行程式", "建立圖片", "撰寫 CSS", "設定 DNS"], 0],
+        ["console.log 常用於？", ["除錯輸出", "加密資料", "部署網站", "版本回退"], 0],
+        ["DOM 全名是？", ["Data Object Mode", "Document Object Model", "Dynamic Output Method", "Direct Oriented Module"], 1]
+      ];
+
+      const form = document.getElementById("quiz");
+      questions.forEach((q, i) => {
+        const block = document.createElement("div");
+        block.className = "q";
+        block.innerHTML = `<p>${i + 1}. ${q[0]}</p>` + q[1]
+          .map((opt, idx) => `<label><input type="radio" name="q${i}" value="${idx}"> ${opt}</label><br>`)
+          .join("");
+        form.appendChild(block);
+      });
+
+      function gradeQuiz() {
+        let score = 0;
+        questions.forEach((q, i) => {
+          const checked = document.querySelector(`input[name="q${i}"]:checked`);
+          if (checked && Number(checked.value) === q[2]) score++;
+        });
+        document.getElementById("result").textContent = `你的分數：${score} / ${questions.length}`;
+      }
+    </script>
+  </body>
+</html>
