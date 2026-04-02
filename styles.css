@@ -1,0 +1,66 @@
+:root {
+  font-family: Inter, "Noto Sans TC", Arial, sans-serif;
+  color: #1f2937;
+  background: #f5f7fb;
+}
+
+body {
+  margin: 0;
+}
+
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h1 { margin-bottom: 8px; }
+.hint { color: #4b5563; }
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  gap: 6px;
+}
+
+select, button {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 16px;
+}
+
+.result {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.word {
+  font-size: 36px;
+  font-weight: 800;
+  margin: 8px 0;
+  color: #0f766e;
+}
+
+.status { color: #334155; }
+
+#wordList {
+  columns: 3;
+  gap: 20px;
+}
+
+#wordList li { margin-bottom: 6px; }
+
+@media (max-width: 720px) {
+  #wordList { columns: 2; }
+}
