@@ -9,6 +9,33 @@
 - 顯示是否命中資料庫與符合條件的單字清單。
 - 支援瀏覽器語音合成（`speechSynthesis`）朗讀單字。
 
+## 快速取得檔案（最短路徑）
+
+### 你現在就在這個環境時
+直接進專案目錄就有全部檔案：
+
+```bash
+cd /workspace/git-student-demo
+ls
+```
+
+你會看到：
+- `index.html`
+- `app.js`
+- `styles.css`
+- `.vscode/`（VS Code 設定）
+- `readme.md`
+
+### 想一次打包帶走
+在專案目錄執行：
+
+```bash
+cd /workspace/git-student-demo
+tar -czf git-student-demo.tar.gz .
+```
+
+會產生 `git-student-demo.tar.gz`，可直接下載/搬移。
+
 ## 用 VS Code 開啟專案
 
 ### 1) 進入專案資料夾
