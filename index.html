@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1200 英文單字字根字首字尾組字 APP</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <h1>1200 常用英文單字：字首 + 字根 + 字尾</h1>
+      <p class="hint">可選擇字首/字根/字尾組字、比對資料庫，並用語音朗讀。</p>
+
+      <section class="controls">
+        <label>
+          字首 Prefix
+          <select id="prefixSelect"></select>
+        </label>
+        <label>
+          字根 Root
+          <select id="rootSelect"></select>
+        </label>
+        <label>
+          字尾 Suffix
+          <select id="suffixSelect"></select>
+        </label>
+      </section>
+
+      <section class="result">
+        <h2>組字結果</h2>
+        <p id="composedWord" class="word">—</p>
+        <p id="wordStatus" class="status">請選擇字根，開始組字。</p>
+        <button id="speakBtn" type="button">🔊 唸出單字</button>
+      </section>
+
+      <section>
+        <h2>符合條件的單字</h2>
+        <p id="countInfo"></p>
+        <ul id="wordList"></ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
